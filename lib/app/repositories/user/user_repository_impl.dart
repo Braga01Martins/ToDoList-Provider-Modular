@@ -65,8 +65,7 @@ class UserRepositoryImpl implements UserRepository {
 
       if (loginMethods.contains('password')) {
         await _firebaseAuth.sendPasswordResetEmail(email: email);
-
-      } else if(loginMethods.contains('google')) {
+      } else if (loginMethods.contains('google')) {
         throw AuthExeptions(
             message:
                 'Cadsatro realizado com o google, não pode ser resetado a senha');
@@ -85,11 +84,12 @@ class UserRepositoryImpl implements UserRepository {
     List<String>? loginMethods;
     try {
       final googleSignIn = GoogleSignIn();
-      final googleUser = await googleSignIn.signIn(); // implementacao para abrir a tela do gogole dentro do app
+      final googleUser = await googleSignIn
+          .signIn(); // implementacao para abrir a tela do gogole dentro do app
       if (googleUser != null) {
         loginMethods =
             await _firebaseAuth.fetchSignInMethodsForEmail(googleUser.email);
-            
+
 // Esse if serve para nao sobreescrever os logins do google com o login de email e senha
         if (loginMethods.contains('password')) {
           throw AuthExeptions(
@@ -126,5 +126,14 @@ class UserRepositoryImpl implements UserRepository {
   Future<void> logout() async {
     await GoogleSignIn().signOut();
     _firebaseAuth.signOut();
+  }
+
+  @override
+  Future<void> updateDisplayName(String name) async {
+    final user = _firebaseAuth.currentUser;
+    if (user != null) {
+      await user.updateDisplayName(name);
+      user.reload();
+    }
   }
 }
