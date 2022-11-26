@@ -33,30 +33,19 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   void initState() {
-    // context.read<RegisterController>().addListener(() {
-    //   final controller = context.read<RegisterController>();
-    //   var sucess = controller.sucess;
-    //   var error = controller.error;
-    //   if (sucess) {
-    //     Navigator.of(context).pop();
-    //   } else if (error != null && error.isNotEmpty) {
-
-    //   }
-    // });
-    super.initState();
     final defaultListener = DefaultListenerNotifier(
         changeNotifier: context.read<RegisterController>());
     defaultListener.listener(
       context: context,
-     everCallback: (notifier, listenerInstance){},
+      everCallback: (notifier, listenerInstance) {},
       successCallback: (notifier, listenerInstance) {
         listenerInstance.dispose();
-        Navigator.of(context).pop();
       },
       errorCallback: (notifier, listenerInstance) {
         print('Deu RUIM!!!!!!');
       },
     );
+    super.initState();
   }
 
   @override
@@ -152,8 +141,8 @@ class _RegisterPageState extends State<RegisterPage> {
                         final formValid =
                             _formKey.currentState?.validate() ?? false;
                         if (formValid) {
-                          final email = _emailEC.text;
-                          final password = _passwordEC.text;
+                          final email = _emailEC.text.trim();
+                          final password = _passwordEC.text.trim();
                           context
                               .read<RegisterController>()
                               .registerUser(email, password);

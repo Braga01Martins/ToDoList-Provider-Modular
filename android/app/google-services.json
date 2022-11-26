@@ -22,6 +22,14 @@
           }
         },
         {
+          "client_id": "675702820075-dh9k44lbkh3ep92enc8bquhbbm1gg9n2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.davibraga.flutter_todolist_provider",
+            "certificate_hash": "ff686a80490138e8b497222a026711685cba32e4"
+          }
+        },
+        {
           "client_id": "675702820075-5b5e2icthqg0809osm9m0o3ao9532f6c.apps.googleusercontent.com",
           "client_type": 3
         }
