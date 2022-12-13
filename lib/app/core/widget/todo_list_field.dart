@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_todolist_provider/app/core/widget/todo_list_icons.dart';
+import 'package:flutter_todolist_provider/app/core/ui/todo_list_icons.dart';
 
 class TodoListField extends StatelessWidget {
   final String label;

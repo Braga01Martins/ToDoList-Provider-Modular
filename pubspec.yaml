@@ -31,17 +31,20 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   provider: ^6.0.3
   sqflite: ^2.0.0+3
   path: ^1.8.1
   google_fonts: ^3.0.1
   flutter_signin_button: ^2.0.0 #Botao personalizado de login via contas externas como google/apple...
-  firebase_auth: ^3.11.2
-  firebase_core: ^1.24.0
+  firebase_auth: ^4.2.0
+  firebase_core: ^2.4.0
   validatorless: ^1.2.3 #para validar os campos de texto
   flutter_overlay_loader: ^2.0.0 #para fazer a barra de carregamento loading
   google_sign_in: ^5.4.2 #para fazer o login via conta do google
-
+  date_picker_timeline: ^1.2.3 #para fazer a transição do calendario na horizontal
+  intl: ^0.17.0 #Formatação e análise de data/número e texto bidirecional.
 
 
   # The following adds the Cupertino Icons font to your application.

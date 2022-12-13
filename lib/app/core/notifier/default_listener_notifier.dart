@@ -10,7 +10,7 @@ class DefaultListenerNotifier {
 
   void listener({
     required BuildContext context,
-    required EverVoidCallback? everCallback,
+     EverVoidCallback? everCallback,
     required SuccessVoidCallback successCallback,
     ErrorVoidCallback? errorCallback,
   }) {
