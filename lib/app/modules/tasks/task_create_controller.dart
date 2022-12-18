@@ -1,5 +1,4 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:flutter_overlay_loader/flutter_overlay_loader.dart';
 import 'package:flutter_todolist_provider/app/core/notifier/default_change_notifier.dart';
 import '../../services/tasks/tasks_service.dart';
 

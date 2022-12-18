@@ -1,9 +1,15 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_todolist_provider/app/models/task_model.dart';
+import 'package:flutter_todolist_provider/app/modules/home/home_controller.dart';
+import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 class Task extends StatelessWidget {
-  const Task({Key? key}) : super(key: key);
+  final TaskModel model;
+  final dateFormat = DateFormat('dd/MM/y');
+  Task({Key? key, required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,19 +27,19 @@ class Task extends StatelessWidget {
         child: ListTile(
           contentPadding: EdgeInsets.all(8),
           leading: Checkbox(
-            value: true,
-            onChanged: (value) {},
+            value: model.finished,
+            onChanged: (value) => context.read<HomeController>().checkOrUncheckTask(model),
           ),
           title: Text(
-            'Descrição da Tesk',
+            model.description,
             style: TextStyle(
-              decoration: true ? TextDecoration.lineThrough : null,
+              decoration: model.finished ? TextDecoration.lineThrough : null,
             ),
           ),
           subtitle: Text(
-            '28/11/2022',
+            dateFormat.format(model.dateTime),
             style: TextStyle(
-              decoration: true ? TextDecoration.lineThrough : null,
+              decoration: model.finished ? TextDecoration.lineThrough : null,
             ),
           ),
           shape: RoundedRectangleBorder(
